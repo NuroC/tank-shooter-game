@@ -38,6 +38,8 @@ class Player {
         this.y += this.velocity.y;
     }
 
+    
+
 }   
 
 module.exports = Player;

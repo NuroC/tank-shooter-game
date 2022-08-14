@@ -17,6 +17,8 @@ let lastRender = Date.now();
 let scale;
 
 let currentTransform = new DOMMatrixReadOnly([1, 0, 0, 1, 0, 0])
+let keys = {};
+
 
 document.addEventListener("keydown", function (e) {
     if (e.key == 'w') {
@@ -65,6 +67,9 @@ function render() {
     ctx.setTransform(defaultTransform);
     ctx.clearRect(0, 0, viewport.width, viewport.height);
     ctx.setTransform(currentTransform);
+
+    // render grid
+    canvas.renderGrid(camera, viewport, 18);
 
     const distance = MathHelper.getDistance(camera.x, camera.y, player.x, player.y); 
     const direction = MathHelper.getDirection(camera.x, camera.y, player.x, player.y);
